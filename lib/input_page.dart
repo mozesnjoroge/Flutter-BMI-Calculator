@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 const double bottomContainerHeight = 80.0;
-const int customColorCode = 0XFF1D1E33;
+const activeColorCode = Color(0XFF1D1E33);
 const double circularRadiusValue = 10.0;
+const bottomContainerColor = Color(0XFFEA1556);
 
 class InputPage extends StatefulWidget {
   @override
@@ -25,12 +26,12 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: ReusableCard(
-                    customColor: Color(customColorCode),
+                    customColor: activeColorCode,
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
-                    customColor: Color(customColorCode),
+                    customColor: activeColorCode,
                   ),
                 ),
               ],
@@ -38,7 +39,7 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: ReusableCard(
-              customColor: Color(customColorCode),
+              customColor: activeColorCode,
             ),
           ),
           Expanded(
@@ -46,12 +47,12 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: ReusableCard(
-                    customColor: Color(customColorCode),
+                    customColor: activeColorCode,
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
-                    customColor: Color(customColorCode),
+                    customColor: activeColorCode,
                   ),
                 ),
               ],
@@ -63,7 +64,7 @@ class _InputPageState extends State<InputPage> {
             height: bottomContainerHeight,
             //border decoration for the container
             decoration: BoxDecoration(
-              color: Color(0XFFEA1556),
+              color: bottomContainerColor,
               borderRadius: BorderRadius.only(
                 bottomRight: Radius.circular(circularRadiusValue),
                 bottomLeft: Radius.circular(circularRadiusValue),
