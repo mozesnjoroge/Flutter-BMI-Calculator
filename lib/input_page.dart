@@ -21,6 +21,7 @@ class _InputPageState extends State<InputPage> {
   Color femaleCardColor = inactiveCardColor;
 
   //function to change the card colors accordingly when either is tapped
+  //executes binary color switching
   void changeCardColor(int gender) {
     if (gender == 1) {
       if (maleCardColor == inactiveCardColor) {
@@ -28,6 +29,7 @@ class _InputPageState extends State<InputPage> {
         femaleCardColor = inactiveCardColor;
       } else {
         maleCardColor = inactiveCardColor;
+        femaleCardColor = activeCardColor;
       }
     }
     if (gender == 2) {
@@ -36,6 +38,7 @@ class _InputPageState extends State<InputPage> {
         maleCardColor = inactiveCardColor;
       } else {
         femaleCardColor = inactiveCardColor;
+        maleCardColor = activeCardColor;
       }
     }
   }
