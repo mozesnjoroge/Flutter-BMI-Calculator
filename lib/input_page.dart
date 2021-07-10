@@ -10,38 +10,18 @@ const double circularRadiusValue = 10.0;
 const bottomContainerColor = Color(0XFFEA1556);
 const inactiveCardColor = Color(0xFF111328);
 
+enum Gender {
+  male,
+  female,
+}
+
 class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
 }
 
 class _InputPageState extends State<InputPage> {
-  //initialize constants for male and female cards background color
-  Color maleCardColor = inactiveCardColor;
-  Color femaleCardColor = inactiveCardColor;
-
-  //function to change the card colors accordingly when either is tapped
-  //executes binary color switching
-  void changeCardColor(int gender) {
-    if (gender == 1) {
-      if (maleCardColor == inactiveCardColor) {
-        maleCardColor = activeCardColor;
-        femaleCardColor = inactiveCardColor;
-      } else {
-        maleCardColor = inactiveCardColor;
-        femaleCardColor = activeCardColor;
-      }
-    }
-    if (gender == 2) {
-      if (femaleCardColor == inactiveCardColor) {
-        femaleCardColor = activeCardColor;
-        maleCardColor = inactiveCardColor;
-      } else {
-        femaleCardColor = inactiveCardColor;
-        maleCardColor = activeCardColor;
-      }
-    }
-  }
+  Gender selectedGender;
 
   @override
   Widget build(BuildContext context) {
@@ -61,11 +41,13 @@ class _InputPageState extends State<InputPage> {
                     onTap: () {
                       //print('Male card was tapped');
                       setState(() {
-                        changeCardColor(1);
+                        selectedGender = Gender.male;
                       });
                     },
                     child: ReusableCard(
-                      customColor: maleCardColor,
+                      customColor: selectedGender == Gender.male
+                          ? activeCardColor
+                          : inactiveCardColor,
                       childCard: IconContent(
                         cardIcon: FontAwesomeIcons.mars,
                         cardText: 'MALE',
@@ -79,11 +61,13 @@ class _InputPageState extends State<InputPage> {
                     onTap: () {
                       // print('Female card was tapped');
                       setState(() {
-                        changeCardColor(2);
+                        selectedGender = Gender.female;
                       });
                     },
                     child: ReusableCard(
-                      customColor: femaleCardColor,
+                      customColor: selectedGender == Gender.female
+                          ? activeCardColor
+                          : inactiveCardColor,
                       childCard: IconContent(
                         cardText: 'FEMALE',
                         cardIcon: FontAwesomeIcons.venus,
