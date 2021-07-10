@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-const double circularRadiusValue = 10.0;
+import 'icon_constants.dart';
 
 class ReusableCard extends StatelessWidget {
   ReusableCard({@required this.customColor, this.childCard, this.onPress});
@@ -16,7 +15,7 @@ class ReusableCard extends StatelessWidget {
         margin: EdgeInsets.all(15.0),
         decoration: BoxDecoration(
           color: customColor,
-          borderRadius: BorderRadius.circular(circularRadiusValue),
+          borderRadius: BorderRadius.circular(kCircularRadiusValue),
         ),
       ),
     );
