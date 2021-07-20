@@ -13,3 +13,23 @@ const kCardNumberStyle = TextStyle(
   fontSize: 50.0,
   fontWeight: FontWeight.w900,
 );
+const kLargeButtonTextStyle = TextStyle(
+  fontWeight: FontWeight.w900,
+  fontSize: 25.0,
+);
+const kResultsPageTitle =
+    TextStyle(fontSize: 50.0, fontWeight: FontWeight.bold);
+const kResultsTextStyle = TextStyle(
+  color: Color(0XFF24D876),
+  fontSize: 22.0,
+  fontWeight: FontWeight.bold,
+);
+
+const kBMITextStyle = TextStyle(
+  fontSize: 100,
+  fontWeight: FontWeight.bold,
+);
+
+const kBodyTextStyle = TextStyle(
+  fontSize: 22,
+);

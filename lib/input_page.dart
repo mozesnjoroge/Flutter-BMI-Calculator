@@ -1,10 +1,10 @@
-import 'package:bmi_calculator/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bmi_calculator/reusable_card.dart';
 import 'package:bmi_calculator/icon_content.dart';
 import 'icon_constants.dart';
+import 'results_page.dart';
 
 enum Gender {
   male,
@@ -205,19 +205,37 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(top: 10.0),
-            width: double.infinity, //stretch along the screen
-            height: kBottomContainerHeight,
-            //border decoration for the container
-            decoration: BoxDecoration(
-              color: kBottomContainerColor,
-              borderRadius: BorderRadius.only(
-                bottomRight: Radius.circular(kCircularRadiusValue),
-                bottomLeft: Radius.circular(kCircularRadiusValue),
+          //TODO Remember to extract this widget
+          GestureDetector(
+            child: Container(
+              child: Center(
+                child: Text(
+                  'CALCULATE',
+                  style: kLargeButtonTextStyle,
+                ),
+              ),
+              margin: EdgeInsets.only(top: 10.0),
+              padding: EdgeInsets.only(bottom: 20.0),
+              width: double.infinity, //stretch along the screen
+              height: kBottomContainerHeight,
+              //border decoration for the container
+              decoration: BoxDecoration(
+                color: kBottomContainerColor,
+                borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(kCircularRadiusValue),
+                  bottomLeft: Radius.circular(kCircularRadiusValue),
+                ),
               ),
             ),
-          )
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultsPage(),
+                ),
+              );
+            },
+          ),
         ],
       ),
     );
