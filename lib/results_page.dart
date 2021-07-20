@@ -1,10 +1,16 @@
 import 'package:bmi_calculator/icon_constants.dart';
-import 'package:bmi_calculator/input_page.dart';
 import 'package:bmi_calculator/reusable_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class ResultsPage extends StatelessWidget {
+  ResultsPage(
+      {@required this.bmiResult,
+      @required this.resultText,
+      @required this.interpretation});
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,21 +38,21 @@ class ResultsPage extends StatelessWidget {
                     Expanded(
                       flex: 1,
                       child: Text(
-                        'OVERWEIGHT',
+                        resultText.toUpperCase(),
                         style: kResultsTextStyle,
                       ),
                     ),
                     Expanded(
                       flex: 2,
                       child: Text(
-                        '26.7',
+                        bmiResult,
                         style: kBMITextStyle,
                       ),
                     ),
                     Expanded(
                       flex: 1,
                       child: Text(
-                        'You have a higher than normal body weight. Try to exercise more.',
+                        interpretation,
                         textAlign: TextAlign.center,
                         style: kBodyTextStyle,
                       ),

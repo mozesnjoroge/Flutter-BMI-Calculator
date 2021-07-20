@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/calculation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -228,10 +229,16 @@ class _InputPageState extends State<InputPage> {
               ),
             ),
             onTap: () {
+              CalculatorChip calc =
+                  CalculatorChip(weight: weight, height: height);
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => ResultsPage(),
+                  builder: (context) => ResultsPage(
+                    bmiResult: calc.calculateBMI(),
+                    resultText: calc.getResult(),
+                    interpretation: calc.getInterpretation(),
+                  ),
                 ),
               );
             },
